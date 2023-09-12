@@ -3,33 +3,33 @@ import docx
 
 
 def get_language(char: str):
-    alphabet_uk = 'абвгдеєжзиіїйклмнопрстуфхцчшщья'
-    alphabet_ru = 'йцукенгшщзхфывапролджэячсмитьбюё'
-    alphabet_en = 'abcdefghijklmnopqrstuvwxyz'
-    alphabet = ''
-    if char.lower() in alphabet_uk:
-        alphabet = alphabet_uk
-    elif char.lower() in alphabet_ru:
-        alphabet = alphabet_ru
-    elif char.lower() in alphabet_en:
-        alphabet = alphabet_en
-    return alphabet
+    languages = {
+        'Кирилиця': 'абвгдеєжзиіїйклмнопрстуфхцчшщьяёъыэ',
+        'Латинська': 'abcdefghijklmnopqrstuvwxyz'
+    }
+    char_lower = char.lower()
+    for language, alphabet in languages.items():
+        if char_lower in alphabet:
+            return alphabet
+    return ''
 
 
 def encrypt(text, shift):
-    result = ''
+    result = []
     for char in text:
         if char.isalpha():
-            alphabet = get_language(char.lower())
-
-            index = (alphabet.index(char.lower()) + shift) % len(alphabet)
-            if char.islower():
-                result += alphabet[index]
-            elif char.isupper():
-                result += alphabet[index].upper()
+            char_lower = char.lower()
+            alphabet = get_language(char_lower)
+            print(alphabet)
+            if char_lower in alphabet:
+                index = (alphabet.index(char_lower) + shift) % len(alphabet)
+                encrypted_char = alphabet[index]
+                result.append(encrypted_char.upper() if char.isupper() else encrypted_char)
+            else:
+                result.append(char)
         else:
-            result += char
-    return result
+            result.append(char)
+    return ''.join(result)
 
 
 def get_key_caesar():
@@ -66,7 +66,7 @@ def save_text_to_file(text, output_suffix):
 
 
 def save_encrypted(encrypted_text):
-    save_text_to_file(encrypted_text, '_encryp')
+    save_text_to_file(encrypted_text, '_encrypt')
 
 
 def save_decrypted(decrypted_text):
@@ -106,7 +106,7 @@ def main():
         filename = sys.argv[1]
         suffix = filename.split('.')[1]
         if suffix == 'txt':
-            with open(filename) as f:
+            with open(filename, encoding='utf-8') as f:
                 text = f.read()
         elif suffix == 'doc' or suffix == 'docx':
             text = read_docx(filename)
