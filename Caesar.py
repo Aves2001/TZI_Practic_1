@@ -20,7 +20,7 @@ def encrypt(text, shift):
         if char.isalpha():
             char_lower = char.lower()
             alphabet = get_language(char_lower)
-            print(alphabet)
+
             if char_lower in alphabet:
                 index = (alphabet.index(char_lower) + shift) % len(alphabet)
                 encrypted_char = alphabet[index]
