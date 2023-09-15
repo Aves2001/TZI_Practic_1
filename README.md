@@ -2,9 +2,9 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/aves2001/tzi_practic_1/badge)](https://www.codefactor.io/repository/github/aves2001/tzi_practic_1)
 
 # Практична робота №1
-з навчальної дисципліни
-“ТЕХНОЛОГІЇ ЗАХИСТУ ІНФОРМАЦІЇ”
-Варіант №14
+	з навчальної дисципліни
+	“ТЕХНОЛОГІЇ ЗАХИСТУ ІНФОРМАЦІЇ”
+	Варіант №14
 
 ---
 ## Інструкція з використання програми для шифрування і розшифрування тексту (шифр Цезаря)
@@ -16,7 +16,7 @@
 ```bash
 git clone https://github.com/Aves2001/TZI_Practic_1.git
 ```
-2. Завантажити `ZIP` після чого розпакувати архів у зручну для вас теку.
+2. [![Завантажити ZIP](https://img.shields.io/badge/Завантажити-ZIP-blue.svg)](https://github.com/Aves2001/TZI_Practic_1/archive/refs/heads/main.zip) після чого розпакувати архів у зручну для вас теку.
 
 ### Крок 2: Запуск програми
 Передбачено 2 сценарії запуску:
